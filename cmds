@@ -1,0 +1,13 @@
+rm -rf directoryname
+
+sudo apt-get remove google-chrome-stable
+
+update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8*/bin/java 1065
+update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8*/bin/javac 1065
+update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.8*/bin/jar 1065
+update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/jdk1.8*/bin/javaws 1065
+
+
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_121
+
+Alt+f2 and type r and enter to restart the shell

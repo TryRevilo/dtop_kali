@@ -1,0 +1,70 @@
+## https://stackoverflow.com/a/12392539/3663765
+sudo service mysql start
+
+## http://www.learn4master.com/programming-language/shell/start-restart-and-stop-apache-on-linux
+
+We often need to start, stop or restart apache web server on Linux system such as Debian and Ubuntu. 
+
+This post uses examples to show how to Start, Restart, or Stop apache web server by using service, systemctl or apache2ctl commands.
+
+service command
+This method works in most Linux distributions including Debian and Ubuntu.
+
+To start Apache 2, run:
+$ sudo service apache2 start
+
+To restart Apache 2, run:
+$ sudo service apache2 restart
+
+To stop Apache 2, run:
+$ sudo service apache2 stop
+
+To gracefully reload Apache 2, run:
+$ sudo service apache2 reload
+
+ 
+systemctl command 
+We need to use systemctl to start Apache 2 on Ubuntu Linux LTS 16.04 LTS or the latest system based Ubuntu Linux. 
+
+Start apache command: 
+$ sudo systemctl start apache2.service
+
+stop apache command :
+$ sudo systemctl stop apache2.service
+
+restart apache command:
+$ sudo systemctl restart apache2.service
+
+To find out whether Apache 2 running or not, run:
+$ sudo systemctl status apache2.service
+
+ 
+
+apache2ctl command 
+apache2ctl command  can be used to stop or start apache web server under any Linux distribution or UNIX.
+To start Apache 2 , run
+$ sudo apache2ctl start
+
+To stop Apache 2,  run:
+$ sudo apache2ctl stop
+
+To restart Apache 2, run:
+$ sudo apache2ctl restart
+
+To gracefully reload Apache 2, run:
+$ sudo apache2ctl graceful
+
+Ubuntu Linux LTS 12.04 and 14.04
+On Ubuntu Linux LTS 12.04 and 14.04, we can use the following command to start, restart or stop apache web server. 
+
+To start Apache 2 on Ubuntu 14.04, run the following command:
+$ sudo start apache2
+
+To stop Apache 2 onUbuntu 14.04, run the following command:
+$ sudo stop apache2
+
+To restart Apache 2 onUbuntu 14.04, run the following command:
+$ sudo restart apache2
+
+To gracefully reload Apache 2 onUbuntu 14.04, run the following command:
+$ sudo restart apache2

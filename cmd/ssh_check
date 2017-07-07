@@ -1,0 +1,5 @@
+if (exec 3<>/dev/tcp/138.201.203.77/22) 2> /dev/null; then
+echo open
+else
+echo closed
+fi

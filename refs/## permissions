@@ -1,0 +1,88 @@
+## PROOFS
+chown -R root:root /tmp/jdk1.8*
+chmod -R +x /tmp/jdk1.8*/bin
+
+## https://www.pluralsight.com/blog/it-ops/linux-file-permissions
+
+chmod - adds and removes permissions
+chmod 755 /folder -R
+
+
+If you wanted to add or remove permissions to the user, use the command “chmod” with a “+” or “–“, along with the r (read), w (write), x (execute) attribute followed by the name of the directory or file.
+
+    chmod +rwx “name of the file”
+
+    chmod –rwx “name of the directory”
+
+
+Changing Permissions for the Group Owners & Others
+
+The command is similar to what we did before, but this time you add a “g” for group or “o” for users.
+
+    chmod g+w testfile
+
+    chmod g-wx testfile
+
+    chmod o+w testfile
+
+    chmod o-rwx workfolder
+
+chgrp – changing groups of files & directories
+
+Another useful option is to change file permission to the group owning the file. Perhaps you create the files, but people on the db2 team can write/execute as well. We use chgrp for this purpose.
+
+By issuing the command - chgrp “name of the group” “name of the file” – you can change this.
+
+    chgrp sales testfile
+
+    chgrp sales workfolder
+
+This give sales control of the file & then I can take away permissions for everyone else.
+
+Note: The group must exit before you try to assign groups to files and directories.
+
+##
+chown – changing ownership
+
+Another helpful command is changing ownerships of files and directories. The command is “chwon” along with “name of new owner” & “name of file.”
+
+    chown -R tom:sales /home/roman/tsfiles
+
+The above command gives tom the ownership of the directory tsfiles, and all files and subfolders. The -R stands for recursive which is why all sub folders and files belong to tom as well.
+
+As opposed to: chown tom workfolder
+
+
+##
+
+Permission in numeric mode
+
+The above way of changing permissions will work fine but you may also need to know how to change permissions in numeric mode. chmod is used in much the same way, but instead of r, w, or x you will use numbers instead.
+
+What are the numbers?
+
+0 = No Permission
+
+1 = Execute
+
+2 = Write
+
+4 = Read
+
+Permission numbers
+
+    0 = ---
+
+    1 = --x
+
+    2 = -w-
+
+    3 = -wx
+
+    4 = r-
+
+    5 = r-x
+
+    6 = rw-
+
+    7 = rwx

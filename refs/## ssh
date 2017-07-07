@@ -1,0 +1,58 @@
+
+##CONNECT TO SSH SERVER
+--
+ssh -p 5927 mmacadvo@138.201.203.77
+
+##VAULT  
+--
+-P 5927
+
+Domain: mmacadvocates.com 
+Username: mmacadvo 
+Password: pb67hd32VY 
+Hosting Package: STARTUP II 
+Server IP: 138.201.203.77
+Primary Nameserver: ns208.sasahost.com 
+Secondary Nameserver: ns209.sasahost.com
+
+Temporarily you may use the following IP Address to access your cpanel: 138.201.203.77
+
+FTP Hostname: 138.201.203.77
+Webpage URL: http://www.mmacadvocates.com 
+Control Panel: http://www.mmacadvocates.com/cpanel
+
+## INSTALL SSH  
+--
+ssh-copy-id -i $HOME/.ssh/id_rsa.pub mmacadvo@138.201.203.77 -p 5927
+scp $HOME/.ssh/id_rsa.pub mmacadvo@138.201.203.77:~/.ssh/authorized_keys
+
+## COPY DIR/ SUB_DIRS/ FILES
+You can use secure copy (scp) with the recursive option (-r):
+--
+scp -r /path/to/local/dir user@remotehost:/path/to/remote/dir
+scp -r remotehost:/path/to/remote/dir/ /path/to/local/dir/
+
+Alternatively, I recommend rsync because you can resume transfers if the connection breaks, and it intelligently transfers only the differences between files:
+--
+rsync -avz -e 'ssh' /path/to/local/dir user@remotehost:/path/to/remote/dir
+Note that in both cases you should be careful of trailing slashes: moving /path/to/local/dir to remotehost:/path/to/remote/dir/ results in /path/to/remote/dir/dir
+
+##COPY https://unix.stackexchange.com/a/188289/126346
+
+## COPY FILE FROM SERVEROn the other hand if you are on the computer wanting to receive file from a remote computer:
+--
+scp username@remote:/file/to/send /where/to/put
+scp -P 5927 -r mmacadvo@138.201.203.77://home/mmacadvo/public_html/test/wp-content/themes/shapely /home/rev/Documents
+
+## COPY FILE TO SERVER
+If you are on the computer from which you want to send file to a remote computer:
+--
+scp -P 5927 -r /opt/lampp/htdocs/projects/wordpress_projects/mmac/wp-content/themes/rev_cust/layout mmacadvo@138.201.203.77:/home/mmacadvo/public_html/wp-content/themes/rev_cust/
+
+scp -P 5927 -r /opt/lampp/htdocs/projects/wordpress_projects/mmac/wp-content/themes/rev_cust mmacadvo@138.201.203.77:/home/mmacadvo/public_html/wp-content/themes
+
+scp -P 5927 /opt/lampp/htdocs/projects/wordpress_projects/mmac/wp-content/themes/rev_cust/our_people.php mmacadvo@138.201.203.77:/home/mmacadvo/public_html/test/wp-content/themes/shapely/
+
+## SCP  
+--
+scp -r mmacadvo@138.201.203.77:/path/to/foo /home/user/Desktop/

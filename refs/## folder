@@ -1,0 +1,43 @@
+sudo rm -r /path/to/folderName
+FYI: you can use letters -f, -r, -v:
+
+-f = to ignore non-existent files, never prompt
+-r = to remove directories and their contents recursively
+-v = to explain what is being done
+
+cp -R /home/mmacadvo/mmac_bloggable/mmac/wp-content/themes/shapely /home/mmacadvo/public_html/wp-content/themes
+
+## COPY  
+You can copy the content of a folder /source to another existing folder /dest with the command
+--
+cp -a /source/. /dest/
+
+cp -a /home/mmacadvo/public_html/wp-content/themes/rev_cust/css_T/css_themer /home/mmacadvo/public_html/wp-content/themes/rev_cust/layout/css/color-scheme
+
+## EXT  
+
+tar -xvzf community_images.tar.gz
+
+tar xvzf ideaIU-2017.1.3.tar.gz -C /tmp/
+tar xf archive.tar.xz
+tar xf archive.tar.gz
+tar xf archive.tar
+
+unzip package.zip -d /opt
+
+## UNZIP ALL FILES  
+unzip \*.zip
+
+chown -R root:root /tmp/idea-IU-171.4424.56
+chmod -R +x /tmp/idea-IU-171.4424.56/bin
+
+mv /tmp/idea-IU-171.4424.56 /opt/
+
+## FIleSys
+
+mkdir -p foo/bar/zoo/andsoforth
+
+
+## How do I remove a directory and all its contents
+rm -rf directoryname
+rm -r images/*

@@ -1,0 +1,12 @@
+## https://superuser.com/a/744533/478347  
+--
+
+#NCFTP
+--
+ncftpput -R -v -u "mmacadvo" 138.201.203.77 public_html/ /home/rev/Documents/mmac
+
+## FTP  
+--
+ftp domain.com
+ftp 138.201.203.77
+ftp user@ftpdomain.com

@@ -1,0 +1,34 @@
+sudo service mysql start
+
+Log in as super user or use sudo
+Open /etc/mysql/my.cnf using gedit
+Find bind-address, and change its value to the database server host machine's IP address. For me, it was localhost or 127.0.0.1
+Save and close the file.
+Come back to terminal and execute sudo service mysql start
+
+## https://askubuntu.com/a/156302/503029
+
+How to reset MySQL root password.
+
+To reset your mysql password of root user, just follow these instructions.
+
+Step1. Stop the mysql demon process using this command :
+
+sudo service mysql stop
+Step2. Start the mysqld demon process using the --skip-grant-tables option with this command:
+
+sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
+Step3. Start the mysql client process using this command:
+
+mysql -u root
+Step4. From the mysql prompt execute this command to be able to change any password:
+
+FLUSH PRIVILEGES;
+Step5. Then reset/update your password and quit:
+
+SET PASSWORD FOR root@'localhost' = PASSWORD('password');
+quit
+Step6. Start the mysql demon process using this command :
+
+sudo service mysql start
+Now, you can log in to MySQL as root user.

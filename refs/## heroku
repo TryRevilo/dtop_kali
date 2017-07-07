@@ -1,0 +1,5 @@
+## UPDATE  
+
+git add .
+git commit -m "updated the header and footer"
+git push heroku master

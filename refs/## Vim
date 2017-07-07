@@ -1,0 +1,66 @@
+## Vim
+
+Just the $ (dollar sign) key. You can use A to move to the end of the line and switch to editing mode (Append).
+
+The opposite of A is I (Insert mode at beginning of line), as an aside.
+
+
+
+Hit the Esc key; vim goes into command mode. Then you can type
+
+    :q to quit (short for :quit)
+    :q! to quit without saving (short for :quit!)
+    :wq to write and quit (think write and quit)
+    :wq! to write and quit even if file has only read permission (if file does not have write permission: force write)
+    :x to write and quit (similar to :wq, but won't write if there are no changes)
+    :qa to quit all (short for :quitall)
+
+    If you want to quit without saving in vim and have vim return a non-zero exit code, you can use :cq.
+
+When you press :, a : will appear at the bottom of the screen.
+
+Or you can press Esc ZZ (Esc Shift+Z Shift+Z) to write/save if the file was changed, then quit.
+
+Or if you don't want to save changes you can use ZQ instead.
+
+Vim has extensive help, so type Esc:helpReturn and you will have all your answers and even a neat tutorial.
+
+
+####  https://stackoverflow.com/a/30710567/3663765
+##
+Before you enter a command, hit the Esc key. After you enter it, hit the Return to confirm.
+
+Esc finishes the current command and switches Vim to command-line mode. Now if you press :, the : will appear at the bottom of the screen. This confirms that you're actually typing a command and not editing the file.
+
+Most commands have abbreviations, with optional part enclosed in brackets: c[ommand].
+
+Commands marked with '*' are Vim-only (not implemented in Vi).
+
+Safe-quit (fails if there are unsaved changes):
+
+    :q[uit] Quit the current window. Quit Vim if this is the last window. This fails when changes have been made in current buffer.
+    :qa[ll]* Quit all windows and Vim, unless there are some buffers which have been changed.
+
+Prompt-quit (prompts if there are unsaved changes)
+
+    :conf[irm] q[uit]* Quit, but give prompt when there are some buffers which have been changed.
+    :conf[irm] xa[ll]* Write all changed buffers and exit Vim. Bring up a prompt when some buffers cannot be written.
+
+Write (save) changes and quit:
+
+    :wq Write the current file (even if it was not changed) and quit. Writing fails when the file is read-only or the buffer does not have a name. :wqa[ll]* for all windows.
+    :wq! The same, but writes even read-only files. :wqa[ll]!* for all windows.
+    :x[it], ZZ(with details). Write the file only if it was changed and quit, :xa[ll]* for all windows.
+
+Discard changes and quit:
+
+    :q[uit]! ZQ* Quit without writing, also when visible buffers have changes. Does not exit when there are changed hidden buffers.
+    :qa[ll]!*, :quita[ll][!]* Quit Vim, all changes to the buffers (including hidden) are lost.
+
+Press Return to confirm the command.
+
+This answer doesn't reference all Vim write and quit commands and arguments. Indeed, they are referenced in the Vim documentation.
+
+Vim has extensive built-in help, type Esc:helpReturn to open it.
+
+This answer was inspired by the other one, originally authored by @dirvine and edited by other SO users. I've included more information from Vim reference, SO comments and some other sources. Differences for Vi and Vim are reflected too.
